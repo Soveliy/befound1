@@ -119,9 +119,12 @@ $(".characteristic-item__close").click(function(){
 });
 
 $(".burger").click(function(){
-  $(".body").toggleClass("js-hiddeb");
+
+  $(".body").toggleClass("js-hidden");
   $(this).toggleClass("js-active");
   $(".menu").slideToggle();
+  $(".menu-item__title.js-active").next().slideToggle();
+
 });
 
 
@@ -174,3 +177,8 @@ $(document).ready(function() {
     }, delay);
   });
 });
+
+var wow = new WOW({
+
+});
+new WOW().init();

@@ -30,6 +30,7 @@ gulp.task('css', function(){
     'node_modules/normalize.css/normalize.css',
     'node_modules/swiper/css/swiper.min.css',
     'assest/css/jquery.fancybox.css',
+    'assest/css/animate.css',
   ])
     .pipe(concat('_libs.scss'))
     .pipe(gulp.dest('app/scss'))
@@ -52,11 +53,9 @@ gulp.task('js', function(){
     'assest/js/jquery.fancybox.js',
     'node_modules/swiper/js/swiper.min.js',
     
-    'assest/js/mask.js',
-    'assest/js/jquery.arcticmodal.js',
-    'assest/js/jquery-ui.min.js',
-    'assest/js/jquery.ui.touch-punch.min.js',
     
+    'assest/js/mask.js',
+    'assest/js/wow.min.js', 
   ])
     .pipe(concat('libs.min.js'))
     .pipe(uglify())
