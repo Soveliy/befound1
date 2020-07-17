@@ -850,8 +850,16 @@ header{
         max-width: 376px;
         @include for-md-desktop{
             width: auto;
-
+            
         }
+        @include for-md-mob{
+            max-width: none;
+            width: 298px;
+        }
+        // @include for-md-mob{
+        //     max-width: 298px;
+        // }
+        
     }
     .swiper-slide--type-1{
         max-width: 583px;
@@ -861,6 +869,19 @@ header{
     }
     &__slider{
         margin-top: 53px;
+        .container{
+            @include for-md-mob{
+                padding: 0;
+            }
+        }
+        
+    }
+    .swiper-slide-next + .swiper-slide{
+        .expertise-item{
+            @include for-md-mob{
+                background-color: #e9e9f5;
+            }
+        }
         
     }
 }
@@ -905,9 +926,14 @@ header{
 .expertise-item{
     padding: 45px 30px;
     background-color: #f8f8f8;
-    height: 500px;
-    
+    min-height: 500px;
     box-sizing: border-box;
+    @include for-md{
+        padding: 23px 25px;
+    }
+    @include for-md-mob{
+        max-width: 298px;
+    }
     &__head{
         display: flex;
         align-items: flex-start;
@@ -938,13 +964,22 @@ header{
         @include for-md{
             margin-top: 30px;
         }
+        @include for-md-mob{
+            font-weight: 700;
+        }
     }
     &__desc{
         margin-top: 25px;
         font-size: 17px;
         line-height: 21px;
-        @include for-lit-mob{
-            font-size: 16px;
+        @include for-md{
+            br{
+                display: none;
+            }
+        }
+        @include for-md-mob{
+            font-size: 14px;
+            line-height: 24px;
         }
     }
     &__link{
@@ -957,6 +992,13 @@ header{
         font-size: 17px;
         line-height: 24px;
         bottom: 30px;
+        transition: .3s;
+        &:hover{
+            color: $black;
+            &::after{
+                background-image: url(../images/arrow-right-black.png);
+            }
+        }
         &::after{
             content: '';
             position: absolute;
@@ -967,7 +1009,14 @@ header{
             height: 14px;
             right: 0;
             top: 50%;
+            transition: .3s;
             transform: translateY(-50%);
+            
+        }
+        @include for-md{
+            font-size: 14px;
+            line-height: 18px;
+            bottom: 54px;
         }
         // span{
         //     padding-left: 15px;
@@ -976,6 +1025,8 @@ header{
         //     line-height: 34px;
         // }
     }
+    
+    
 
 
 }
