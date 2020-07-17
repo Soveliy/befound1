@@ -115,8 +115,8 @@ $(".characteristic-item__close").click(function(){
   $(this).parent().slideToggle();
 });
 
-$(".principle-of-work__show-more").click(function(){
+$(".burger").click(function(){
   $(this).toggleClass("js-active");
-  $(this).parent().toggleClass("js-active");
+  $(".menu").slideToggle();
 });
 

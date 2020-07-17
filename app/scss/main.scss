@@ -60,7 +60,6 @@ header{
     flex: 0 0 auto;
  }
  .burger{
-    display: none;
     height: 20px;
     width: 30px;
     border-radius: 5px;
@@ -69,10 +68,26 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    &.js-active{
+        span{
+            background-color: $yellow;
+        }
+        span:first-child{
+            transform: rotate(45deg) translate(4px,4px);
+        }
+        span:nth-child(2){
+            transform: rotate(-45deg) translate(2px,0);
+        }
+        span:last-child{
+            opacity: 0;
+        }
+    }
     span{
         background-color: $white;
         height: 3px;
         width: 100%;
+        transition: .3s;
        
         &:last-child{
             width: 50%;
@@ -327,6 +342,7 @@ header{
     }
 }
 .menu{
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -386,8 +402,38 @@ header{
         margin-bottom: 33px;
         box-sizing: border-box;
     }
+    &__button{
+        background-color: transparent;
+        border:1px solid $white;
+        color: $white;
+        text-align: center;
+        display: block;
+        width: 100%;
+        margin-bottom: 30px;
+        &:hover{
+            background-color: #ffe668;
+            border-color: #ffe668;
+            color: $white;
+        }
+    }
+    &__desc{
+        font-size: 14px;
+        line-height: 20px;
+        color: #696a6a;
+
+        a{
+            font-size: 14px;
+            line-height: 20px;
+            color: #696a6a;
+            text-decoration: underline;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
 }
 .payment-method{
+    margin-top: 50px;
     display: flex;
     align-items: center;
     &__row{
@@ -404,7 +450,25 @@ header{
         }
         input{
             display: none;
+            &:checked + .payment-method__checkbox{
+                opacity: 1;
+            }
+            &:checked + .payment-method__checkbox--phone{
+                background-image: url(../images/icons/phone1.png);
+            }
+            &:checked + .payment-method__checkbox--teleg{
+                background-image: url(../images/icons/teleg1.png);
+            }
+            &:checked + .payment-method__checkbox--whatsapp{
+                background-image: url(../images/icons/whatsapp1.png);
+            }
         }
+    }
+    &__title{
+        font-size: 17px;
+        line-height: 21px;
+        color: $white;
+        margin-right: 25px;
     }
     &__checkbox{
         display: block;
@@ -412,9 +476,17 @@ header{
         width: 100%;
         background-position: center center;
         background-repeat: no-repeat;
-
+        background-size: contain;
+        transition: .3s;
+        opacity: .5;
         &--phone{
-            background-image: url(../images/);
+            background-image: url(../images/icons/phone.png);
+        }
+        &--teleg{
+            background-image: url(../images/icons/teleg.png);
+        }
+        &--whatsapp{
+            background-image: url(../images/icons/whatsapp.png);
         }
     }
 }
@@ -1296,4 +1368,8 @@ header{
             }
         }
     }
+}
+
+.swiper-container-multirow-column>.swiper-wrapper{
+    flex-direction: row;
 }
