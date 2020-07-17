@@ -43,6 +43,15 @@ var relationship = new Swiper('.expertise__slider .swiper-container', {
 //     prevEl: $(this).parent().find('.swiper-button-prev'),
 // },
 
+//  breakpoints: {
+//     550: {
+//       slidesPerView: ,
+//     },
+        
+//     1024: {
+//       slidesPerView: '4',
+//     }
+//   }
 
 });
 
