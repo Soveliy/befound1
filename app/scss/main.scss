@@ -715,10 +715,10 @@ header{
             font-size: 36px;
             line-height: 40px;
         }
-        span{
+        a{
             display: block;
             transition: .3s;
-
+            color: $grey2;
             @include for-md(){
                 &:not(:first-child){
                     display: none;
@@ -751,6 +751,7 @@ header{
     }
 }
 .about-item{
+    display: block;
     transition: .3s;
     border: 1px solid transparent;
     &:hover{
@@ -1240,6 +1241,9 @@ header{
     box-sizing: border-box;
     background-color: #f8f8f8;
     transition: .3s;
+    &:hover{
+        background-color: $white;
+    }
     @include for-sm(){
         padding: 75px 15px 150px 25px;
     }
@@ -1281,6 +1285,10 @@ header{
 .payment{
     background-color: #ffee9b;
     padding: 102px 0 109px;
+    transition: .3s;
+    &:hover{
+        background-color: #FFF4BC;
+    }
     @include for-md{
         padding: 86px 0 64px;
     }
@@ -1479,11 +1487,23 @@ header{
         }
     }
     .demo{
+        transition: .3s;
         @include for-md{
             background-color: #e9e9f5;
         }
+        &:hover{
+            
+            @include for-md{
+                background-color: #DADAF6;
+            }
+            .demo__inner{
+                background-color: #DADAF6;
+                transition: .3s;
+            }
+        }
         &__inner{
             background-color: #e9e9f5;
+            
         }
         &__button{
             &:hover{
@@ -1491,6 +1511,7 @@ header{
                 color: #e9e9f5;
             }
         }
+        
     }
     &__arrows{
         display: none;
