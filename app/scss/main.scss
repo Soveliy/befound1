@@ -1594,6 +1594,26 @@ header{
                 margin-right: 30px;
             }
         }
+        &__checkbox{
+            &--phone{
+                transition: .3s;
+                &:hover{
+                    background-image: url(../images/icons/phone2.png);
+                }
+            }
+            &--teleg{
+                transition: .3s;
+                &:hover{
+                    background-image: url(../images/icons/teleg2.png);
+                }
+            }
+            &--whatsapp{
+                transition: .3s;
+                &:hover{
+                    background-image: url(../images/icons/whatsapp2.png);
+                }
+            }
+        }
         .payment-method__label+.payment-method__label{
             
             @include for-md-mob{
