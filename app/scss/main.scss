@@ -191,7 +191,7 @@ header{
         line-height: 35px;
     }
     @include for-sm(){
-        font-size: 22px;
+        font-size: 24px;
         line-height: 30px;
     }
 
@@ -206,6 +206,10 @@ header{
     &--center{
         text-align: center;
     }
+    @include for-md(){
+        font-size: 17px;
+        line-height: 24px;
+    }
 }
 .wrapper{
     position: relative;
@@ -218,6 +222,11 @@ header{
     max-width: 1200px;
     width: 94%;
     margin: 0 auto;
+    @include for-md(){
+        box-sizing: border-box;
+        padding: 0 25px;
+        width: 100%;
+    }
 }
 .button{
     border-radius: 2px;
@@ -229,6 +238,9 @@ header{
     font-weight: 500;
     display: inline-block;
     transition: .3s;
+    @include for-md(){
+        padding: 10px 20px;
+    }
 
     &--black{
         background-color: $custom-black;
@@ -253,6 +265,9 @@ header{
 .hero{
     background-color: $black;
     padding: 125px 0 80px;
+    @include for-md(){
+        padding: 115px 0 65px;
+    }
     &__row{
         display: flex;
         justify-content: space-around;
@@ -263,11 +278,18 @@ header{
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-
+        @include for-sm(){
+            opacity: .6;
+        }
         &:hover{
             .hero__item-title{
                 color: #787878;
             }
+        }
+    }
+    &__item-container{
+        @include for-sm(){
+            width: 25%;
         }
     }
     &__item-title{
@@ -277,8 +299,25 @@ header{
         color: $grey3;
         margin-bottom:24px;
         transition: .3s;
+
+        @include for-sm(){
+            font-size: 0;
+            br{
+                display: none;
+            }
+        }
         span{
             text-transform: uppercase;
+            @include for-sm(){
+                font-size: 14px;
+            line-height: 17px;
+            }
+        }
+    }
+    &__item-icon{
+        max-width: 100%;
+        @include for-sm(){
+            max-height: 26px;
         }
     }
     &__pretitle{
@@ -287,6 +326,16 @@ header{
         color:$grey2 ;
         margin-bottom: 60px;
         text-align: center;
+
+        @include for-md(){
+            font-size: 25px;
+            line-height: 28px;
+        }
+        @include for-sm(){
+            font-size: 20px;
+            line-height: 23px;
+            margin-bottom: 40px;
+        }
     }
     &__title{
         font-size: 42px;
@@ -294,15 +343,43 @@ header{
         font-weight: 500;
         color: $grey2;
         text-align: center;
+        @include for-md(){
+            font-size: 36px;
+            line-height: 40px;
+        }
+        span{
+            display: block;
+            transition: .3s;
+
+            @include for-md(){
+                &:not(:first-child){
+                    display: none;
+                }
+            }
+            &:hover{
+                color: #5300ff;
+            }
+        }
+     
+       
     }
     &__buttons{
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 74px 0 105px;
+        @include for-md(){
+            margin: 50px 0 70px;
+        }
+        @include for-sm(){
+            justify-content: space-between;
+        }
     }
     &__button{
         margin: 0 30px;
+        @include for-sm(){
+            margin: 0;
+        }
     }
 }
 .about-item{
@@ -325,10 +402,31 @@ header{
 }
 .about{
     padding: 70px 0 30px;
+    & + &{
+        @include for-sm(){
+            padding: 40px 0 30px;
+        }
+    }
+    &__arrows{
+        display: none;
+        @include for-sm(){
+            display: flex;
+            margin-top: 31px;
+            .swiper-button-next{
+                margin-left: 16px;
+            }
+        }
+    }
     &__slider{
         .swiper-slide{
             height: auto;
             width: calc(33.3% - 24px);
+            @include for-md(){
+                width: 400px;
+            }
+            @include for-sm{
+                width: 260px;
+            }
         }
     }
     &__section-unrdertitle{
@@ -336,27 +434,60 @@ header{
     }
     &__slider{
         margin-top: 50px;
+        @include for-md(){
+            margin-top: 26px;
+        }
     }
 }
 .about-item{
     height: 100%;
+    @include for-md(){
+        border-color: rgb(245, 245, 245);
+        box-shadow: 0px 3px 25px 0px rgba(240, 240, 240, 0.4);
+    }
     &__title{
         font-size: 24px;
         line-height: 30px;
         font-weight: 500;
+        @include for-sm(){
+            font-size: 20px;
+            line-height: 27px;
+        }
+
     }
     &__body{
         box-sizing: border-box;
         padding: 32px 30px 40px;
+        @include for-md(){
+            padding: 5px 30px 24px;
+        }
     }
     &__option{
         font-size: 17px;
         line-height: 20px;
         margin: 15px 0 20px;
+        // @include for-sm(){
+        //     display: none;
+        // }
     }
     &__desc{
         font-size: 17px;
         line-height: 24px;
+        @include for-sm(){
+            display: none;
+        }
+    }
+    &-image-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 255px;
+        @include for-sm(){
+            height: 155px;
+        }
+    }
+    &__image{
+        max-width: 100%;
     }
 }
 .reviews{
@@ -365,11 +496,18 @@ header{
         overflow: hidden;
       margin-top: 70px;
     }
+    .swiper-container{
+        overflow: hidden;
+    }
     &__arrows{
         margin-top: 21px;
         position: relative;
         display: flex;
         margin-left: 205px;
+        @include for-sm(){
+            margin-left: 0;
+            margin-top: 35px;
+        }
 
         .swiper-button-prev{
             margin-right: 29px;
@@ -380,14 +518,30 @@ header{
     position: relative;
     display: flex;
     align-items: flex-start;
+
+    @include for-sm(){
+        flex-direction: column;
+        padding-bottom: 60px;
+    }
     &__left{
         flex-shrink: 0;
         margin-right: 47px;
+        @include for-sm(){
+            margin-right: 0;
+            display: flex;
+            align-items: flex-start;
+        }
     }
     &__image-container{
         height: 160px;
         width: 160px;
         margin-bottom: 45px;
+        @include for-sm(){
+            height: 105px;
+            width: 105px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
         
     }
     &__image{
@@ -402,7 +556,11 @@ header{
         justify-content: center;
     }
     &__icon{
+        position: absolute;
         max-width: 100%;
+        bottom: 0;
+        left: 0;
+       
     }
     &__right-side{
         width: 100%;
@@ -410,6 +568,10 @@ header{
     &__text{
         font-size: 17px;
         line-height: 24px;
+        @include for-sm(){
+            font-size: 14px;
+            line-height: 24px;
+        }
 
         & + &{
             margin-top: 25px;
@@ -417,14 +579,18 @@ header{
     }
     &__info{
         margin-top: 20px;
+        @include for-sm(){
+            margin-top: 17px;
+        }
+        
         &--mobile{
             display: none;
-            @include for-md(){
+            @include for-sm(){
                 display: block;
             }
         }
         &--desktop{
-            @include for-md(){
+            @include for-sm(){
                 display: block;
             }
         }
@@ -433,11 +599,19 @@ header{
         font-size: 17px;
         line-height: 24px;
         margin-bottom: 10px;
+        @include for-sm(){
+            font-size: 14px;
+            line-height: 18px;
+        }
     }
     &__position{
         font-size: 14px;
         line-height: 30px;
         font-style: italic;
+        @include for-sm(){
+            font-size: 12px;
+            line-height: 18px;
+        }
     }
 
 }
@@ -445,14 +619,27 @@ header{
     background-color: #f8f8f8;
     margin: 70px 0 105px;
     padding: 36px 0 29px;
+    @include for-md(){
+        margin: 50px 0 55px;
+        padding: 55px 0 0;
+    }
     &__row{
         display: flex;
         justify-content: space-between;
         padding: 0 50px;
         box-sizing: border-box;
+        @include for-sm(){
+            flex-wrap: wrap;
+            padding: 0;
+        }
     }
     &__item{
+        width: 25%;
         text-align: center;
+        @include for-sm(){
+            width: 50%;
+            margin-bottom: 55px;
+        }
         &-value{
             font-size: 30px;
             line-height: 33px;
@@ -503,13 +690,32 @@ header{
     .swiper-slide{
         width: 480px;
         height: auto;
+        @include for-sm(){
+            width: 298px;
+            &.swiper-slide-next{
+                .relationship-item{
+                    background-color: #e9e9f5;
+                }
+            }
+        }
+
     }
+    &__slider{
+        @include for-sm(){
+            margin-left: -25px;
+        }
+    }
+    
 }
 .relationship-item{
     height: 100%;
     padding: 49px 31px 57px;
     box-sizing: border-box;
     background-color: #f8f8f8;
+    transition: .3s;
+    @include for-sm(){
+        padding: 75px 15px 150px 25px;
+    }
     &__number{
         font-size: 48px;
         line-height: 51px;
@@ -517,16 +723,28 @@ header{
         font-family: "Tahoma",sans-serif;
         font-weight: 700;
         margin-bottom: 45px;
+        @include for-sm(){
+            margin-bottom: 20px;
+        }
     }
     &__title{
         font-size: 24px;
         line-height: 27px;
         font-weight: 500;
         margin: 0 0 25px;
+        @include for-sm(){
+            font-size: 17px;
+            line-height: 20px;
+        }
+
     }
     &__desc{
         font-size: 17px;
         line-height: 24px;
+        @include for-sm(){
+            font-size: 14px;
+            line-height: 24px;
+        }
     }
 }
 
