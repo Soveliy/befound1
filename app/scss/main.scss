@@ -652,7 +652,34 @@ header{
         line-height: 24px;
     }
 }
+.expertise{
+    .swiper-slide--type-2{
+        max-width: 376px;
+        @include for-md-desktop{
+            width: auto;
+
+        }
+    }
+    .swiper-slide--type-1{
+        max-width: 583px;
+        @include for-md{
+            display: none;
+        }
+    }
+    &__slider{
+        margin-top: 53px;
+        
+    }
+}
+
 .expertise-item-y{
+    &--mobile{
+        display: none;
+        @include for-md{
+            margin-top: 42px;
+            display: block;
+        }
+    }
     &__video{
         position: relative;
         padding-top: 56.50%;
@@ -671,16 +698,92 @@ header{
         font-weight: 500;
     }
     &__title{
+        margin-top: 10px;
         font-size: 20px;
         line-height: 23px;
         font-weight: 700;
     }
     &__desc{
+        margin-top: 10px;
         font-size: 17px;
         line-height: 24px;
     }
 }
 .expertise-item{
+    padding: 45px 30px;
+    background-color: #f8f8f8;
+    height: 500px;
+    
+    box-sizing: border-box;
+    &__head{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        @include for-md{
+            align-items: flex-end;
+        }
+    }
+    &__icon{
+        @include for-md{
+            margin-bottom: 14px;
+        }
+    }
+    &__name{
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 21px;
+        @include for-lit-mob{
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+    &__title-container{
+        margin-top: 7px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        @include for-md{
+            margin-top: 30px;
+        }
+    }
+    &__desc{
+        margin-top: 25px;
+        font-size: 17px;
+        line-height: 21px;
+        @include for-lit-mob{
+            font-size: 16px;
+        }
+    }
+    &__link{
+        position: absolute;
+        display: inline-block;
+        margin-top: 90px;
+        padding-right: 24px;
+        font-weight: 500;
+        color: #a8a8a8;
+        font-size: 17px;
+        line-height: 24px;
+        bottom: 30px;
+        &::after{
+            content: '';
+            position: absolute;
+            background-image: url(../images/arrow-right.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 9px;
+            height: 14px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        // span{
+        //     padding-left: 15px;
+        //     font-weight: 400;
+        //     font-size: 30px;
+        //     line-height: 34px;
+        // }
+    }
+
 
 }
 .relationship{
@@ -754,4 +857,199 @@ header{
 .payment{
     background-color: #ffee9b;
     padding: 102px 0 109px;
+    @include for-md{
+        padding: 86px 0 64px;
+    }
+    &__row{
+        display: flex;
+        margin-top: 40px;
+        &--flex-end{
+            justify-content: flex-end;
+        }
+        @include for-md{
+            flex-direction: column;
+        }
+    }
+    &__title{
+        @include for-md{
+            text-align: center;
+        }
+    }
+    // &__item{
+    //     @include for-md{
+    //         margin-bottom: 55px;
+    //     }
+    // }
+    &__desc{
+        font-size: 20px;
+        line-height: 30px;
+        @include for-md{
+            text-align: center;
+        }
+    }
+    &__input{
+        min-width: 346px;
+        @include for-lg{
+            min-width: 0;
+        }
+        @include for-md{
+            display: block;
+            width: 100%;
+            max-width: 306px;
+            margin: 0 auto;
+        }
+    }
+    &__input + &__input{
+        margin-top: 50px;
+        @include for-md{
+            margin-top: 30px;
+        }
+        
+    }
+    &__item-container + &__item-container{
+        margin-left: 70px;
+        @include for-md{
+            margin-left: 0;
+            margin-top: 30px;
+        }
+    }
+    &__agreement{
+        margin-top: 53px;
+        font-size: 14px;
+        line-height: 20px;
+        @include for-md{
+            margin-top: 20px;
+           text-align: center;
+        }
+    }
+    &__agreement-link{
+        text-decoration: underline;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    &__button{
+        margin-top: 53px;
+        margin-left: 103px;
+        border-radius: 4px;
+        border: 1px solid $black;
+        max-width: 346px;
+        width: 100%;
+        min-height: 56px;
+        &:hover{
+            background-color: $black;
+            color: $yellow;
+        }
+        @include for-md{
+            margin: 45px auto 0;
+        }
+        @include for-tiny-tablet{
+            padding: 8px 12px;
+            max-width: 242px;
+        }
+    }
+    
+}
+.demo{
+    margin: 35px 0 95px;
+    @include for-md{
+        background-color: #ffee9b;
+    }
+    &__inner{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 36px 30px;
+        background-color: #ffee9b; 
+        @include for-md{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__title{
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        @include for-md{
+            text-align: center;
+        }
+    }      
+    &__subtitle{
+        margin-top: 10px;
+        font-size: 17px;
+        line-height: 21px;
+        @include for-md{
+            text-align: center;
+        }
+    }
+    &__input{
+        margin-left: 50px;
+        @include for-md{
+            margin-left: 0;
+            margin-top: 50px;
+        }
+    }
+    &__button{
+        margin-left: 50px;
+        border: 1px solid $black;
+        border-radius: 4px;
+        min-height: 56px;
+        max-width: 253px;
+        width: 100%;
+        &:hover{
+            background-color: $black;
+            color: $yellow;
+        }
+        @include for-md{
+            margin-left: 0;
+            margin-top: 40px;
+        }
+        @include for-tiny-mob{
+            max-width: 170px;
+            min-height: 38px;
+            padding: 6px 15px;
+        }
+    }
+}
+.all-projects{
+    padding: 100px 0 0;
+    &__row{
+        margin-top: 53px;
+        // .swiper-container-multirow-column>.swiper-wrapper{
+        //     flex-direction: row;
+        // }
+    }
+    &__item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    // &__item + &__item{
+    //     margin-left: 23px;
+    // }
+    .swiper-slide{
+        @include for-md-desktop{
+            width: auto;
+        }
+    }
+    &__img-block{
+        &:hover{
+            background-color: #fafafa;
+        }
+    }
+    .demo{
+        @include for-md{
+            background-color: #e9e9f5;
+        }
+        &__inner{
+            background-color: #e9e9f5;
+        }
+        &__button{
+            &:hover{
+                background-color: $blue;
+                color: #e9e9f5;
+            }
+        }
+    }
 }
