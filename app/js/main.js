@@ -55,44 +55,47 @@ var relationship = new Swiper('.expertise__slider .swiper-container', {
 
 });
 
-var relationship = new Swiper('.all-projects__row .swiper-container', {
+var swiper = new Swiper('.all-projects__row .swiper-container', {
 
-  // watchSlidesVisibility: true,
-  // watchSlidesProgress: true,
+  watchSlidesVisibility: true,
+  watchSlidesProgress: true,
   slidesPerColumn: 5,
+  slidesPerColumnFill: 'row',
   slidesPerView: 6,
-  loop: false,
-  // breakpoints: {
+  breakpoints: {
     
-  //   320: {
-  //     slidesPerView: 1,
-  //   },
+    320: {
+      slidesPerView: 1,
+      slidesPerColumn: 4,
+    },
 
-  //   400: {
-  //     slidesPerView: 2,
-  //   },
+    400: {
+      slidesPerView: 2,
+    },
     
-  //   530: {
-  //     slidesPerView: 3,
-  //   },
+    600: {
+      slidesPerView: 3,
+    },
 
-  //   710: {
-  //     slidesPerView: 4,
-  //   },
+    710: {
+      slidesPerView: 4,
+    },
     
-  //   1024: {
-  //     slidesPerView: 6,
-  //   }
-  // }
-//   navigation: {
-//     nextEl: $(this).parent().find('.swiper-button-next'),
-//     prevEl: $(this).parent().find('.swiper-button-prev'),
-// },
+    1024: {
+      slidesPerView: 6,
+      slidesPerColumn: 5,
+    }
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+},
 
 
 });
   
      $(".numbox").mask("+7 (999) 999 99 99");
+     $(".demo__input").mask("+7 (999) 999 99 99");
   
   
 

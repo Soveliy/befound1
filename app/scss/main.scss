@@ -1330,6 +1330,9 @@ header{
 }
 .all-projects{
     padding: 100px 0 0;
+    @include for-sm{
+        padding-top: 52px;
+    }
     &__row{
         margin-top: 53px;
         // .swiper-container-multirow-column>.swiper-wrapper{
@@ -1372,4 +1375,19 @@ header{
 
 .swiper-container-multirow-column>.swiper-wrapper{
     flex-direction: row;
+    &__arrows{
+        margin-top: 21px;
+        position: relative;
+        margin-left: 205px;
+        display: none;
+        @include for-sm(){
+            margin-left: 0;
+            margin-top: 35px;
+            display: flex;
+        }
+
+        .swiper-button-prev{
+            margin-right: 29px;
+        }
+    }
 }
