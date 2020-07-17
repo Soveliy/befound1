@@ -10,7 +10,6 @@ $grey2:#ededed;
 $grey3:#d4d4d4;
 $white:#ffffff;
 
-
 @mixin for-xxl {
   @media (max-width: 1805px) { @content; }
 }

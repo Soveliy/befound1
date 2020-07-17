@@ -15,6 +15,7 @@ body{
     line-height: 20px;
     height: 100%;
     color: $black;
+    
     &.fancybox-active{
         height: 100%;
     }
@@ -146,7 +147,13 @@ header{
         border-radius: 50%;
         // color: rgb(168, 168, 168);
         color: $black;
-        
+        transition: .3s;
+        &:hover{
+            background-color: $black;
+            &:after{
+                color: $white;
+            }
+        }
         &:before{
             display: none;
         }
@@ -159,6 +166,7 @@ header{
             font-size: 30px;
             line-height: 33px;
             font-family: "Ubuntu";
+            transition: .3s;
         }
 
         &.swiper-button-prev{
@@ -218,8 +226,7 @@ header{
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    
+    height: 100%;    
 }
 .container{
     max-width: 1200px;
@@ -233,7 +240,7 @@ header{
 }
 .button{
     border-radius: 2px;
-   
+    text-align: center;
     padding: 12px 31px;
     box-sizing: border-box;
     font-size: 17px;
@@ -1000,6 +1007,10 @@ header{
     background-color: #f8f8f8;
     min-height: 500px;
     box-sizing: border-box;
+    transition: .3s;
+    &:hover{
+        background-color: #fff;
+    }
     @include for-md{
         padding: 23px 25px;
     }
@@ -1066,6 +1077,7 @@ header{
         bottom: 30px;
         transition: .3s;
         &:hover{
+            padding-right: 35px;
             color: $black;
             &::after{
                 background-image: url(../images/arrow-right-black.png);
@@ -1182,6 +1194,12 @@ header{
         &--flex-end{
             justify-content: flex-end;
         }
+        &--reverse{
+            @include for-md{
+                flex-direction: column-reverse !important;
+                margin-top: 0;
+            }
+        }
         @include for-md{
             flex-direction: column;
         }
@@ -1276,7 +1294,11 @@ header{
         align-items: flex-end;
         justify-content: space-between;
         padding: 36px 30px;
-        background-color: #ffee9b; 
+        background-color: #ffee9b;
+        transition: .3s;
+        &:hover{
+            background-color: #FFF4BC;
+        }
         @include for-md{
             flex-direction: column;
             align-items: center;
@@ -1307,6 +1329,9 @@ header{
         }
     }
     &__button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-left: 50px;
         border: 1px solid $black;
         border-radius: 4px;
@@ -1371,6 +1396,15 @@ header{
             }
         }
     }
+    &__arrows{
+        display: none;
+        .swiper-button-prev{
+            margin-right: 29px;
+        }
+        @include for-md{
+            display: flex;
+        }
+    }
 }
 
 .swiper-container-multirow-column>.swiper-wrapper{
@@ -1390,4 +1424,83 @@ header{
             margin-right: 29px;
         }
     }
+}
+.request-modal{
+    display: none;
+    max-width: 1380px;
+    width: 100%;
+    background-color: #f3f3fa;
+    &__container{
+        max-width: 788px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .payment{
+        background-color: #f3f3fa;
+        &__agreement{
+            color: #afa6bf;
+        }
+        &__agreement-link{
+            color: #afa6bf;
+        }
+        &__input{
+            font-size: 17px;
+            line-height: 21px;
+            @include for-lg{
+                min-width: 346px;
+            }
+            @include for-md-mob{
+                min-width: 0;
+            }
+        }
+        &__title{
+            font-weight: 500;
+            @include for-md{
+                font-size: 35px;
+                line-height: 39px;
+            }
+            @include for-md-mob{
+                font-size: 28px;
+                line-height: 32px;
+            }
+        }
+    }
+    .payment-method{
+        @include for-lg{
+            display: flex;
+            justify-content: center;
+        }
+        &__title{
+            margin-right: 61px;
+            color: $black;
+            @include for-md-mob{
+                margin-right: 30px;
+            }
+        }
+        .payment-method__label+.payment-method__label{
+            
+            @include for-md-mob{
+                margin-left: 13px;
+            }
+        }
+    }
+    .fancybox-close-small{
+        padding: 0;
+        top: 18%;
+        right: 18%;
+        @include for-md{
+            top: 33px;
+            right: 36px;
+        }
+    }
+    
+}
+.request-modal.fancybox-content{
+    padding: 0;
+}
+.fancybox-can-swipe .fancybox-content, .fancybox-can-pan .fancybox-content{
+    cursor: auto;
+}
+.fancybox-button--arrow_right, .fancybox-button--arrow_left, .fancybox-infobar{
+    display: none;
 }
