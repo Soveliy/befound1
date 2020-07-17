@@ -18,6 +18,10 @@ body{
     &.fancybox-active{
         height: 100%;
     }
+    &.js-hidden{
+        position: relative;
+        overflow: hidden;
+    }
 }
 
 a{
@@ -262,6 +266,14 @@ header{
             color: $black;
         }
     }
+    &--yellow{
+        background-color: #ffe56a;
+        max-width: 300px;
+        width: 100%;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
 
 }
@@ -351,6 +363,9 @@ header{
     background-color: #282828;
     z-index: 8000;
     padding: 125px 0 0;
+    @include for-md(){
+        padding: 90px 0 25px;
+    }
     &__wrapper{
         position: relative;
         overflow-y: auto;
@@ -359,6 +374,9 @@ header{
         display: flex;
         flex-wrap: wrap;
         margin-right: -45px;
+        @include for-md(){
+            margin-right: 0;
+        }
     }
     &__item-container{
 
@@ -368,8 +386,28 @@ header{
         padding-right: 45px;
         box-sizing: border-box;
         margin-bottom: 50px;
+
         &--w66{
             width: 66%;
+            @include for-md(){
+                display: none;
+            }
+        }
+        &--mobile{
+            display: none;
+            @include for-md(){
+                display: block;
+            }
+        }
+        @include for-md(){
+            width: 100%;
+            padding-right: 0;
+            margin-bottom: 30px;
+        }
+        &--fp-mobile{
+            @include for-md(){
+                order: -1;
+            }
         }
     }
     &__title{
@@ -378,6 +416,10 @@ header{
         color: #484848;
         font-weight: 700;
         margin-bottom: 35px;
+
+        @include for-md(){
+            display: none;
+        }
     }
     &__form-callback{
         padding-left: 50px;
@@ -495,6 +537,9 @@ header{
     position: relative;
     padding-top: 25px;
     box-sizing: border-box;
+    @include for-md(){
+        padding-top: 0;
+    }
     &__value{
         font-size: 17px;
         line-height: 20px;
@@ -502,16 +547,54 @@ header{
         position: absolute;
         left: 0;
         top: 0;
+        @include for-md(){
+            margin-top: 5px;
+        }
+        &--mobile{
+            display: none;
+            @include for-md(){
+                display: block;
+            }
+        }
     }
     &__title{
         font-size: 20px;
         line-height: 30px;
         color: #ededed;
         margin-bottom: 30px;
+        @include for-md(){
+            position: relative;
+            display: inline-block;
+            &:after{
+                content: '>';
+                position: absolute;
+                left: 100%;
+                top: 1px;
+                font-size: 20px;
+                color: #696a6a;
+                margin-left: 10px;
+                transition: .3s;
+            }
+        }
+        &.js-active{
+            &:after{
+                transform: rotate(90deg);
+                color: #ffe56a;
+            }
+        }
+        &--mobile{
+            display: none;
+            @include for-md(){
+                display: inline-block;
+            }
+        }
     }
     ul{
         padding: 0;
         margin: 0;
+        @include for-md(){
+            display: none;
+        }
         li + li{
             margin-top: 5px;
         }
@@ -521,9 +604,22 @@ header{
             line-height: 20px;
             color: #ededed;
             transition: .3s;
+
+            &:after{
+                content: ">";
+                position: absolute;
+                left: 100%;
+                margin-left: 10px;
+                opacity: 0;
+                
+            }
             &:hover{
                 color: #ffeb8c;
+                &:after{
+                    opacity: 1;
+                }
             }
+
         }
     }
 }
