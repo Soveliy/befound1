@@ -162,3 +162,15 @@ $(".hero__button").click(function() {
   });
   return false;
 });
+
+var top_show = 500; // В каком положении полосы прокрутки начинать показ кнопки "Наверх"
+var delay = 1000; // Задержка прокрутки
+$(document).ready(function() {
+ 
+  $('.logo__text').click(function () { // При клике по кнопке "Наверх" попадаем в эту функцию
+    /* Плавная прокрутка наверх */
+    $('body, html').animate({
+      scrollTop: 0
+    }, delay);
+  });
+});
